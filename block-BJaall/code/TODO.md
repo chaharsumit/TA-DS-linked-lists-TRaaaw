@@ -23,24 +23,56 @@ step-4: Now we will repeat the step 1, 2 and 3 but we will keep in mind not to t
 2. Create a function named `bubbleSort` that accepts an array of numbers and returns the array with sorted values. The elements should be in ascending order. Use the bubble sorting algorithms. After writing the function test it with an array and check if you are getting the right output.
 
 ```js
-function bubbleSort() {
-  // your code
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
 }
 ```
 
 3. Create a function named `selectionSort` that accepts an array of numbers and returns the array with sorted values. The elements should be in ascending order. Use the selection sorting algorithms. After writing the function test it with an array and check if you are getting the right output.
 
 ```js
-function selectionSort() {
-  // your code
+function selectionSort(arr) {
+  let currentMin, currentItem, currentMinIndex;
+  for (let i = 0; i < arr.length; i++) {
+    currentMin = arr[i];
+    currentMinIndex = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      currentItem = arr[j];
+      if (currentMin > currentItem) {
+        currentMin = arr[j];
+        currentMinIndex = j;
+      }
+    }
+    arr[currentMinIndex] = arr[i];
+    arr[i] = currentMin;
+  }
+  return arr;
 }
 ```
 
 4. Create a function named `insertionSort` that accepts an array of numbers and returns the array with sorted values. The elements should be in ascending order. Use the insertion sorting algorithms. After writing the function test it with an array and check if you are getting the right output.
 
 ```js
-function insertionSort() {
-  // your code
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    for (let j = i; j > 0; j--) {
+      if (arr[j] < arr[j - 1]) {
+        let temp = arr[j - 1];
+        arr[j - 1] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
 }
 ```
 
